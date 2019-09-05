@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szhq.mybaties.dao.UserExendMapper">
+  <resultMap id="BaseResultMap" type="com.szhq.mybaties.models.User">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="extend" jdbcType="VARCHAR" property="extend" />
+    <result column="last_logint_ime" jdbcType="VARCHAR" property="lastLogintIme" />
+    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="system_id" jdbcType="VARCHAR" property="systemId" />
+    <result column="tenant_id" jdbcType="VARCHAR" property="tenantId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, create_time, extend, last_logint_ime, login_name, `name`, `password`, phone, 
+    `status`, system_id, tenant_id
+  </sql>
+  <select id="selectMyCustom" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where name = #{name} and id = #{id}
+  </select>
+</mapper>

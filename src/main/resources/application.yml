@@ -1,0 +1,26 @@
+server:
+  port: 8888
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/aep_iemp?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&serverTimezone=GMT
+    username: root
+    password: Changeme_123
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: DatebookHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+mybatis:
+  #映射文件路径
+  mapper-locations: classpath:mapper/*.xml
+  #模型所在的包名
+  type-aliases-package: com.szhq.mybaties.models
+logging:
+  level:
+    com.szhq.mybaties.dao: debug
